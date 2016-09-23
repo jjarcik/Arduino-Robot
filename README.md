@@ -4,6 +4,7 @@
 
 - https://learn.adafruit.com/wifi-controlled-mobile-robot/connections
 - http://wifinodebot.blogspot.cz/2016/02/blink-led-over-wifi-with-nodejs-johnny.html
+- http://nul.cz/arduino/arduino-rizeni-krokoveho-motoru/
 
 
 ## Součástí
