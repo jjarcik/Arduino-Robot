@@ -18,8 +18,10 @@ http://robotstore.cz/obchod/arduino/2wd-podvozek-pro-inteligentni-auto-arduino-r
 http://robotstore.cz/obchod/arduino/esp8266-wi-fi-modul-arduino-esp-14/?added-to-cart=13641
 
 <img src='./imgs/772-138.1.jpg' alt="screenshot" width="200"/>
+<img src='./imgs/3852-thickbox.jpg' alt="screenshot" width="200"/>
 
-https://www.gme.cz/arduino-motor-shield-l293d
+
+https://www.gme.cz/arduino-motor-shield-l293d nebo http://arduino-shop.cz/arduino/916-arduino-motor-driver-l293d-1420992197.html
 
 ### Propojení Arduina s motory
 http://zschlebnice.sk/kopr/arduino_hbridge.php
