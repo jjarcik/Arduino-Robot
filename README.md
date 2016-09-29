@@ -17,3 +17,6 @@ http://robotstore.cz/obchod/arduino/2wd-podvozek-pro-inteligentni-auto-arduino-r
 
 
 http://robotstore.cz/obchod/arduino/esp8266-wi-fi-modul-arduino-esp-14/?added-to-cart=13641
+
+### Propojení Arduina s motory
+http://zschlebnice.sk/kopr/arduino_hbridge.php
