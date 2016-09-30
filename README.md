@@ -31,3 +31,6 @@ http://zschlebnice.sk/kopr/arduino_hbridge.php
 
 ### Propojení Arduino s WiFI
 - http://wifinodebot.blogspot.cz/2016/02/blink-led-over-wifi-with-nodejs-johnny.html
+
+### Software
+
