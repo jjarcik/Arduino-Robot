@@ -7,7 +7,7 @@ Cílem projektu je vytvořit dálkově řízeného robota pomocí WiFi a Node.js
 - https://learn.adafruit.com/wifi-controlled-mobile-robot/connections
 
 
-## Součástí
+## Součásti
 
 | Tables        | Are           | Cool  | sdsdfsdf |
 | ------------- |:-------------:|:-----:| --------:|
