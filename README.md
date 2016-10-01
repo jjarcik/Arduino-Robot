@@ -16,8 +16,8 @@ Většinou součástí můžete celkem snadno koupit samostatně, tak jako jsem 
 
 Podvozek 2WD Arduiono Robot se skládá ze dvou motorů 3-6V. Na baterie je přiložen zásobník pro 4 kusy 1.5V baterií typu AA(dohromady 6V). Existuje spoustu druhů, které jsou zdánlivě hodně podobné, ale liší se v kvalitě materiálu a výroby. Návod na sestavení je součástí balení (v čínštině), avšak dá se to postavit i bez něj. Pokud si chcete být jistý, že máte například správně otočený motory atp. doporučuji tutorial na např. [youtube](https://www.youtube.com/watch?v=VHuOJ54YXaA). Motory nemají připájeny dráty na zapojení, přijde tedy i čas na to, vyhrabat z půdy starou pájkou a trochu cínu, dráty připájet a zajistit.
 
-| Top | Bottom | Wires | Solder
-|--- | --- |
+| Top | Bottom | Wires | Solder |
+|--- | --- | --- | ---|
 | <img src='./imgs/my_robot.jpg'  width="200"/> | <img src='./imgs/my_robot2.jpg'  width="200"/> | <img src='./imgs/wires.jpg'  width="113"/> | <img src='./imgs/solder.jpg'  width="200"/>
 
 ### Propojení Arduina s motory
