@@ -34,6 +34,10 @@ https://www.youtube.com/watch?v=jhism2iqT7o
 http://zschlebnice.sk/kopr/arduino_hbridge.php
 
 ### Propojení Arduino s WiFI
+K Arduino jsem si pořídil modul ESP8266 s adapterem.
+<img src='./imgs/esp8266_adapter.jpg' width="200">
+Kdo by nevěděl tak jako já, jak takový adapter použít, stačí když se podívá na následující video, kde je všechno jasné, viz [Youtube](https://www.youtube.com/watch?v=O2SSyfP6OM0). Opět tedy potřebujeme pájku. Tentokrát by se víc hodila mikro pájka, já si ale budu muset vystačit s tím co mám. 
+
 - http://wifinodebot.blogspot.cz/2016/02/blink-led-over-wifi-with-nodejs-johnny.html
 
 
