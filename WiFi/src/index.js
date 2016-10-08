@@ -13,6 +13,9 @@ var sp = new VirtualSerialPort({
 
 //use the serial port to send a command to a remote firmata(arduino) device
 var io = new firmata.Board(sp);
+
+console.log(sp)
+
 io.once('ready', function(){
     console.log('IO Ready');
     io.isReady = true;
