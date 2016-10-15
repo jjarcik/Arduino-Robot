@@ -1,7 +1,7 @@
 #Arduino Robot
 
-Cílem projektu je vytvořit dálkově řízeného robota pomocí WiFi a Node.js. Pro snažší programování budeme používat knihovnu http://johnny-five.io/ Robot by měl reagovat otáčením motoru podle příkazů vysílaných z webového prohlížeče.
-Většinou součástí můžete celkem snadno koupit samostatně, tak jako jsem to udělal já. Lépe ale uděláte, pokud koupíte již hotové sety. V ČR se nic takového neprodává, ale v zahraničí (ebay, aliexpress, dx) jich najdete spoustu. Navíc o poznání levněji, např. [tenhle nadupaný set](https://www.aliexpress.com/item/New-Avoidance-tracking-Motor-Smart-Robot-Car-Chassis-Kit-Speed-Encoder-Battery-Box-2WD-Ultrasonic-module/32362408263.html?spm=2114.01010208.3.1.FbXrGx&ws_ab_test=searchweb0_0,searchweb201602_5_10056_10065_10055_10068_10054_10069_10059_418_10073_10017_10070_10060_10061_10052_10062_10053_10050_10051,searchweb201603_4&btsid=2db3ebc8-70f6-428d-b3fe-d15568254ecd) stojí půlku toho kolik jsem za svýho robota zaplatil já ještě k němu dostanete součástí navíc. Stejně tak samostatné díly koupíte v těchto eshopech mnohem levněji. Pokud ovšem vydržíte čekat 3 týdny na doručení? :-)
+Tento dokument popisuje postup a procesy pro výrobu dálkově řízeného, motory poháněného robota pomocí Arduino a Node.js. Bezdrátový přenost bude realizován skrz WiFi, pohyb robota bude řízen otáčením dvou motorů podle příkazů vysílaných z webového prohlížeče.
+Většinu součástí můžete koupit samostatně, tak jako jsem to udělal já, lépe ale uděláte, pokud koupíte již hotové sety. např. [tenhle nadupaný set za necelých 20$](https://www.aliexpress.com/item/New-Avoidance-tracking-Motor-Smart-Robot-Car-Chassis-Kit-Speed-Encoder-Battery-Box-2WD-Ultrasonic-module/32362408263.html). Díly koupíte i na českých eshopech za celkem rozumné ceny, o poznání levněji je pak nakoupíte například na eshopech ebay nebo aliexpress. Pokud ovšem vydržíte čekat 3 týdny na doručení? :-)
 ## Součásti
 
 |         | část           | cena  | popis |
