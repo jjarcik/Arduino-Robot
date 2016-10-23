@@ -1,0 +1,220 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	position: fixed;
+}
+
+div{
+	box-sizing: border-box;
+}
+
+/* FIX ASPECT RATIO 1:1 square */
+.square:after{
+	content: "";
+	display: block;
+	padding-bottom: 100%;	
+}
+
+#controlPadWrapper{
+	width: 500px;
+	max-width: 80%;	
+	left: 0;
+	right: 0;
+	top: 50px;
+	margin: auto;
+	position: absolute;	
+}
+
+#controlPad{
+	border: 1px solid #333;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#controlPad:after{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 1px solid green;
+	border-radius: 100%;
+	z-index: 2
+}
+
+#controlPad:before{
+	content: "";
+	display: block;
+	width: 10%;	
+	height: 10%;	
+	background: #000;
+	border-radius: 100%;	
+	position: absolute;	
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;	
+	z-index: 2;
+}
+
+#joystick{
+	position: absolute;
+	width: 10%;
+	height: 10%;
+	border: 2px solid green;
+	border-radius: 100%;
+	z-index: -2;
+}
+
+#axes:before, #axes:after{
+	position: absolute;
+	background: #ccc;
+	content: "";
+	display: block;
+}
+
+#axes:before{
+	width: 1px;
+	height: 100%;
+	left: 50%;
+	top: 0;
+}
+
+#axes:after{
+	width: 100%;
+	height: 1px;
+	left: 0;
+	top: 50%;
+}
+
+/* --------------------------- 	*/
+/* auto 						*/
+/* --------------------------- 	*/
+#auto{
+	border: 1px solid #ccc;	
+	width: 100%;
+	max-width: 300px;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#auto div{
+	float: left;
+	width: 20%;
+	background: orange;
+	border-right: 1px solid #ccc;
+	background: no-repeat;
+	background-size: 80%;
+	background-position: center;
+}
+
+#auto div.selected{
+	background-color: orange;
+}
+
+#auto div[data-id="rotate360"]{
+	background-image: url("img/rotate360.png");
+}
+
+#auto div[data-id="up"]{
+	background-image: url("img/up.png");
+}
+
+#auto div[data-id="right"]{
+	background-image: url("img/right.png");
+}
+
+#auto div[data-id="left"]{
+	background-image: url("img/left.png");
+}
+
+#auto div[data-id="down"]{
+	background-image: url("img/down.png");
+}
+
+#auto div:after{
+
+}
+
+/* --------------------------- 	*/
+/* debug 						*/
+/* --------------------------- 	*/
+
+.motor{
+	
+	top: 50px;
+	
+	position: absolute;
+
+	width: 500px;
+	max-width: 80%;	
+}
+
+.motor > div{
+	position: absolute;
+	width: 7.5%;
+	height: 100%;	
+}
+
+.indicator{
+	background: red;
+}
+
+.indicator > div{
+	position: absolute;
+	width: 100%;
+	height: 0%;
+}
+
+.indicator .plus{
+	background: #68f077;
+	background: -moz-linear-gradient(top, #68f077 0%, #e00909 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, #68f077), color-stop(100%, #e00909));
+	background: -webkit-linear-gradient(top, #68f077 0%, #e00909 100%);
+	background: -o-linear-gradient(top, #68f077 0%, #e00909 100%);
+	background: -ms-linear-gradient(top, #68f077 0%, #e00909 100%);
+	background: linear-gradient(to bottom, #68f077 0%, #e00909 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68f077', endColorstr='#e00909', GradientType=0 );
+	bottom: 50%;
+}
+
+.indicator .minus{
+	background: #e00909;
+	background: -moz-linear-gradient(top, #e00909 0%, #68f077 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, #e00909), color-stop(100%, #68f077));
+	background: -webkit-linear-gradient(top, #e00909 0%, #68f077 100%);
+	background: -o-linear-gradient(top, #e00909 0%, #68f077 100%);
+	background: -ms-linear-gradient(top, #e00909 0%, #68f077 100%);
+	background: linear-gradient(to bottom, #e00909 0%, #68f077 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e00909', endColorstr='#68f077', GradientType=0 );
+	top: 50%;
+}
+
+#left{
+	left: 0;
+}
+
+#right{
+	right: 0;
+}
+
+#right > div{
+	right: 0;
+}
+
+#debug{
+	position: absolute;
+	top: 0;	
+	right: 0;
+
+}

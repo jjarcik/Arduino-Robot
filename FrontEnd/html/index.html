@@ -1,0 +1,46 @@
+<html>
+<link href='styles.css' type="text/css" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<body>				
+
+	<div id="controlPadWrapper" class="square">		
+		<div id="controlPad">		
+			<div id="joystick"></div>	
+			<div id="axes"></div>
+		</div>
+	</div>
+
+	<div id="auto">
+		<div data-id="rotate360"  class="button square"></div>
+		<div data-id="up"  class="button square"></div>
+		<div data-id="down"  class="button square"></div>
+		<div data-id="left"  class="button square"></div>
+		<div data-id="right"  class="button square"></div>
+	</div>
+
+
+	<!-- indicators -->
+	<div id="left" class="motor square">
+		<div>
+			<div class="indicator">
+				<div class="plus"></div>
+				<div class="minus"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="right" class="motor square">
+		<div>
+			<div class="indicator">
+				<div class="plus"></div>
+				<div class="minus"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="debug"></div>
+
+	<script src="main.js"></script>
+</body>
+
+</html>
