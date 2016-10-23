@@ -1,35 +1,41 @@
+var playzone = document.getElementsByTagName("body")[0],
+controlPad = document.getElementById("controlPad")
+joystick = document.getElementById("joystick")
+
 var state = {
 	mouseDown: false
 }
 
 function ontouchmove(data) {
 	setValues({
-		x: data.changedTouches[0].pageX,
-		y: data.changedTouches[0].pageY,
-		w: window.innerWidth,
-		h: window.innerHeight
+		x: data.changedTouches[0].pageX - controlPad.getBoundingClientRect().left,
+		y: data.changedTouches[0].pageY - controlPad.getBoundingClientRect().top,
+		w: controlPad.offsetWidth,
+		h: controlPad.offsetHeight
 	})
 }
 
-function onmousedown(data) {
-	state.mouseDown = true;
+function onmousemove(data) {
+	data.preventDefault()	
+	if (state.mouseDown) {
+		setValues({
+			x: data.clientX - controlPad.getBoundingClientRect().left,
+			y: data.clientY - controlPad.getBoundingClientRect().top,
+			w: controlPad.offsetWidth,
+			h: controlPad.offsetHeight
+		})
+	}
 }
 
+
+function onmousedown(data) {
+	state.mouseDown = true;
+	data.preventDefault()	
+}
 
 function onmouseup(data) {
 	state.mouseDown = false;
-}
-
-
-function onmousemove(data) {
-	if (state.mouseDown) {
-		setValues({
-			x: data.clientX,
-			y: data.clientY,
-			w: window.innerWidth,
-			h: window.innerHeight
-		})
-	}
+	data.preventDefault()	
 }
 
 function normalisePercentage(data) {
@@ -55,6 +61,13 @@ function max255(data) {
 	})
 }
 
+function min255(data) {
+	return ({
+		left: Math.max(data.left, -255),
+		right: Math.max(data.right, -255)
+	})
+}
+
 function floor(data) {
 	return ({
 		left: Math.floor(data.left),
@@ -64,14 +77,46 @@ function floor(data) {
 
 function distributSpeed(data){
 	return ({
-		left: data.left * 2*255 * (data.speed - .5),
-		right: data.right * 2*255 * (data.speed - .5),
+		left: data.left * 4*255 * (data.speed - .5),
+		right: data.right * 4*255 * (data.speed - .5),
 	})
 }
 
+function setToZone(data, zone) {
+	var left = data.x
+	var top = data.y
+
+	left = Math.min(left, zone.offsetWidth + zone.offsetLeft)
+	top = Math.min(top, zone.offsetHeight + zone.offsetTop)
+	left = Math.max(left, zone.offsetLeft)
+	top = Math.max(top, zone.offsetTop)
+
+	return {
+		x: left,
+		y: top
+	}
+}
+
+function setJoyStick(data) {
+	var left = data.x - joystick.offsetWidth / 2;
+	var top = data.y  - joystick.offsetHeight / 2;
+
+	joystick.style.left = left
+	joystick.style.top = top
+}
+
 function setValues(data) {
-	var data = floor(max255(distributSpeed(minZero(normalisePercentage(data)))))
-	values2html(data)
+	document.getElementById("debug").innerHTML = Math.floor(data.x) + ", " + Math.floor(data.y)
+	
+	var inzone = setToZone(data, controlPad)
+	setJoyStick(inzone)
+	
+	data.x = inzone.x - controlPad.offsetLeft;
+	data.y = inzone.y - controlPad.offsetTop;;
+
+	var trans = floor(min255(max255(distributSpeed(minZero(normalisePercentage(data))))))
+	values2html(trans)	
+	
 }
 
 function values2html(data){
@@ -79,6 +124,7 @@ function values2html(data){
 	document.getElementById("left_direction").innerHTML = data.left > 0 ? "+" : "-"
 	document.getElementById("right_pwd").innerHTML = Math.abs(data.right)
 	document.getElementById("right_direction").innerHTML = data.right > 0 ? "+" : "-"
+
 }
 
 function init() {
@@ -86,10 +132,10 @@ function init() {
 	var el = document.getElementsByTagName("body")[0];
 	console.log("init")
 
-	el.addEventListener("touchmove", ontouchmove);
-	el.addEventListener("mousedown", onmousedown);
-	el.addEventListener("mouseup", onmouseup);
-	el.addEventListener("mousemove", onmousemove);
+	playzone.addEventListener("touchmove", ontouchmove);
+	playzone.addEventListener("mousedown", onmousedown);
+	playzone.addEventListener("mouseup", onmouseup);
+	playzone.addEventListener("mousemove", onmousemove);
 
 }
 
