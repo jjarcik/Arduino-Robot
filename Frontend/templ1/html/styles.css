@@ -122,7 +122,7 @@ div{
 	background-color: orange;
 }
 
-#auto div[data-id="rotate360"]{
+#auto div[data-id="rotate"]{
 	background-image: url("img/rotate360.png");
 }
 

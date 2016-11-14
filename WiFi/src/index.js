@@ -1,32 +1,51 @@
-console.log("start")
+/*
+ * Update line 18 below to the ESP8266 board address
+ *
+ * Enable Serial debugging by uncommenting //#defin SERIAL_DEBUG in StandardFirmataWiFi
+ * (save a copy of StandardFirmataWiFi first)
+ *
+ * On startup (you may have to reset the ESP board because it starts up really fast
+ * view the Serial output to see the assigned IP address (if using DHCP)
+ * Or if you want to give the board a static IP (not use DHCP) then uncomment the
+ * following lines in wifiConfig.h and update to your chosen IP address:
+ * #define STATIC_IP_ADDRESS  10,0,0,17
+ * #define SUBNET_MASK        255,255,255,0 // REQUIRED for ESP8266_WIFI, ignored for others
+ * #define GATEWAY_IP_ADDRESS 0,0,0,0       // REQUIRED for ESP8266_WIFI, ignored for others
+ */
+var Firmata = require("firmata").Board;
+var EtherPortClient = require("etherport-client").EtherPortClient;
+var board = new Firmata(new EtherPortClient({
+  host: "192.168.1.103",
+  port: 3030
+}));
 
-var VirtualSerialPort = require('udp-serial').SerialPort;
-var firmata = require('firmata');
-var five = require("johnny-five");
- 
-//create the udp serialport and specify the host and port to connect to
-var sp = new VirtualSerialPort({
-  host: '192.168.4.1',
-  type: 'udp4',
-  port: 1025
-});
+board.on("ready", function() {
+  console.log("READY!");
+  console.log(
+    board.firmware.name + "-" +
+    board.firmware.version.major + "." +
+    board.firmware.version.minor
+  );
 
-//use the serial port to send a command to a remote firmata(arduino) device
-var io = new firmata.Board(sp);
+   var state = 1;
+  var lastVal = 0;
 
-console.log(sp)
+  this.pinMode(2, this.MODES.OUTPUT);
 
-io.once('ready', function(){
-    console.log('IO Ready');
-    io.isReady = true;
+  setInterval(function() {
+    // blinks the blue LED on a HUZZAH ESP8266 board
+    // for other boards, wire an LED to pin 2 or change
+    // the pin number below
+    this.digitalWrite(13, (state ^= 1));
+  }.bind(this), 500);
 
-    var board = new five.Board({io: io, repl: true});
+  // this does not seem to be working - need to look into it
+  // one other thing is ESP uses a 1V reference for analog so
+  // once this works, it will need scaling
+  this.analogRead(0, function(value) {
+    if (value != lastVal) {
+      console.log(value);
+    }
+  });
 
-    board.on('ready', function(){
-        console.log('five ready');
-        //Full Johnny-Five support here:
-
-        var led = new five.Led(13);
-        led.blink(500);
-    });
-});
+  });

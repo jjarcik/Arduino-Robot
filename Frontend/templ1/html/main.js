@@ -167,8 +167,38 @@ function onbuttonclick(event) {
 		prevbutton = event.target
 		event.target.classList.add("selected")	
 	}
+	
+	switch (event.target.dataset.id) {
+		case "up":
+			callRobot(3)
+			break
+		case "down":
+			callRobot(4)
+			break
+		case "left":
+			callRobot(1)
+			break
+		case "right":
+			callRobot(2)
+			break
+		case "rotate":
+			callRobot(5)
+			break
+	}
+	//callRobot()
 
 	
+}
+
+function callRobot(pin){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'http://10.0.0.6/?pin=' + pin);
+	xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
+	xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+	xhr.addEventListener("load", function(){
+		console.log(this.responseText);
+	});
+	xhr.send(null)
 }
 
 function init() {
