@@ -3,7 +3,8 @@
 ## Propojení motorů s řadičem
 Motory v arduino je možné ovládat pouze skr převodník. Dobrý článek popisující technické záležitosti motoru a jeho zapojení najdete např. [zde](http://zschlebnice.sk/kopr/arduino_hbridge.php). Já použil [L293d shield od Deek Robot](http://www.deek-robot.com/productShow.asp?id=17), který umožňuje zapojit dva motory a externí napájení, které je nutné pro silnější motory. Umožňuje připojit až 25V, což by samotné Arduino nikdy nebylo schopné dodat. K propojení s externím zdrojem, můžete použít battery pack pro 4xAAA tužkové baterie. Připojíte je na GND a VIN piny (na obrázku níýe to jsou piny DC9-24V). Dva motory pak připojíte vedle. Pro každý motor dva kabely. První zapojíte na A+, A-, druhý na B+ a B-. Samotné motory pak budeme ovládat přímo, programováním Arduina a nakonec přes JavaScript, tj programováním v NodeJS [s knihovnou](http://johnny-five.io/)
 
-<img src='../imgs/aaa_pack.jpg' height="200"/> <img src='../imgs/drive_l293d_desc.jpg' height="400"/>
+<img src='https://raw.githubusercontent.com/jjarcik/Arduino-Robot/master/Docs/imgs/aaa_pack.jpg' height="200"/>
+<img src='https://raw.githubusercontent.com/jjarcik/Arduino-Robot/master/Docs/imgs/drive_l293d_desc.jpg' height="400"/>
 
 
 ## Propojení řadiče s Arduinem Uno
